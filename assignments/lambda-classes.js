@@ -17,14 +17,14 @@ class Instructor extends Person {
         this.specialty = attributes.specialty;
         this.favLanguage = attributes.favLanguage;
         this.catchPhrase = attributes.catchPhrase;
-        this.subject = attributes.subject;
+        // this.subject = attributes.subject;
         // this.subject = attributes.subject;
     }
-    demo() {
-        return `Today we are learning about ${this.subject}`;
+    demo(subject) {
+        return `Today we are learning about ${subject}`;
     }
-    grade() {
-        return `${student.name} recieves a perfect score on ${student.className}`;
+    grade(student, subject) {
+        return `${student.name} recieves a perfect score on ${subject}`;
     }
 
 }
@@ -39,11 +39,11 @@ class Student extends Instructor {
     listsSubjects() {
         console.log(favSubjects);
     }
-    PRAssignment() {
-        return `${student.name} has a PR for ${this.subject}`;
+    PRAssignment(student, subject) {
+        return `${student.name} has a PR for ${subject}`;
     }
-    SprintChallenge() {
-        return `${student.name} has begun sprint challenge ${this.subject}`;
+    SprintChallenge(student, subject) {
+        return `${student.name} has begun sprint challenge ${subject}`;
     }
 }
 
@@ -57,14 +57,11 @@ class ProjectManager extends Student {
     standUp() {
         return `${this.name} announces to ${this.channel}, @channel standy times!`;
     }
-    debugsCode() {
-        return `${this.name} debugs ${student.name}'s code on ${this.subject}`;
+    debugsCode(student,subject) {
+        return `${this.name} debugs ${student.name}'s code on ${subject}`;
     }
 
 }
-
-
-
 
 const fred = new Instructor({
     name: 'Fred',
@@ -93,10 +90,10 @@ let jb = new ProjectManager({
 
 
 console.log(fred.speak());
-console.log(tony.demo());
-// console.log(tony.grade());
+console.log(tony.demo('java'));
+console.log(fred.grade(tony, 'java'));
 console.log(tony.favSubjects);
-// console.log(tony.PRAssignment());
-// console.log(tony.SprintChallenge());
+console.log(tony.PRAssignment(tony, 'Java'));
+console.log(tony.SprintChallenge(tony,'JavaScript IV'));
 console.log(jb.standUp());
-// console.log(jb.debugsCode());
+console.log(jb.debugsCode(tony,'java'));

@@ -26,6 +26,16 @@ class Instructor extends Person {
     grade(student, subject) {
         return `${student.name} recieves a perfect score on ${subject}`;
     }
+    Randomint(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        let results = Math.floor(Math.random() * (max - min)) + min;
+            if (results >= 70) {
+                return 'You can graduate';
+            } else {
+                return 'Go back and grade their assignement to increase score';
+            }
+    }
 
 }
 
@@ -45,6 +55,7 @@ class Student extends Instructor {
     SprintChallenge(student, subject) {
         return `${student.name} has begun sprint challenge ${subject}`;
     }
+
 }
 
 class ProjectManager extends Student {
@@ -57,7 +68,7 @@ class ProjectManager extends Student {
     standUp() {
         return `${this.name} announces to ${this.channel}, @channel standy times!`;
     }
-    debugsCode(student,subject) {
+    debugsCode(student, subject) {
         return `${this.name} debugs ${student.name}'s code on ${subject}`;
     }
 
@@ -94,6 +105,7 @@ console.log(tony.demo('java'));
 console.log(fred.grade(tony, 'java'));
 console.log(tony.favSubjects);
 console.log(tony.PRAssignment(tony, 'Java'));
-console.log(tony.SprintChallenge(tony,'JavaScript IV'));
+console.log(tony.SprintChallenge(tony, 'JavaScript IV'));
 console.log(jb.standUp());
-console.log(jb.debugsCode(tony,'java'));
+console.log(jb.debugsCode(tony, 'java'));
+console.log(fred.Randomint(1, 100));

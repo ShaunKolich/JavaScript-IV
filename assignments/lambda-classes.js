@@ -40,10 +40,10 @@ class Student extends Instructor {
         console.log(favSubjects);
     }
     PRAssignment() {
-        return `${student.name} has a PR for ${subject}`;
+        return `${student.name} has a PR for ${this.subject}`;
     }
     SprintChallenge() {
-        return `${student.name} has begun sprint challenge ${subject}`;
+        return `${student.name} has begun sprint challenge ${this.subject}`;
     }
 }
 
@@ -52,12 +52,13 @@ class ProjectManager extends Student {
         super(attributes);
         this.gradClassName = attributes.gradClassName;
         this.favInstructor = attributes.favInstructor;
+        this.channel = attributes.channel;
     }
     standUp() {
-        return `${name} announces to ${channel}, @channel standy times!`;
+        return `${this.name} announces to ${this.channel}, @channel standy times!`;
     }
     debugsCode() {
-        return `${name} debugs ${student.name}'s code on ${subject}`;
+        return `${this.name} debugs ${student.name}'s code on ${this.subject}`;
     }
 
 }
@@ -84,9 +85,18 @@ let tony = new Student({
 
 });
 
+let jb = new ProjectManager({
+    name: 'Jb',
+    channel: 'webpt6',
+
+});
+
 
 console.log(fred.speak());
 console.log(tony.demo());
 // console.log(tony.grade());
 console.log(tony.favSubjects);
 // console.log(tony.PRAssignment());
+// console.log(tony.SprintChallenge());
+console.log(jb.standUp());
+// console.log(jb.debugsCode());
